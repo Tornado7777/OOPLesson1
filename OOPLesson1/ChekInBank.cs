@@ -3,23 +3,75 @@ namespace OOPLesson1
 {
     internal class ChekInBank
     {
+        /* Урок 2, часть 4
+         * В классе все методы для заполнения и получения значений полей заменить на
+         * свойства. Написать тестовый пример.
+         * часть 5  (*) Добавить в класс счет в банке два метода: снять со счета и положить на счет.
+         * Метод снять со счета проверяет, возможно ли снять запрашиваемую сумму, и в
+         * случае положительного результата изменяет баланс.
+         */
+
         private int _numberChek;
         private int _balanc;
         private TypeChek _typeChek;
         private static int startChekNumber;
 
+        public int numberChek
+        {
+            get
+            {
+                return _numberChek;
+            }
 
-        public int getNumberChek()
-        {
-            return _numberChek;
+            set
+            {
+                if (_numberChek != 0) Console.WriteLine("Номер счета будт изменен с" + _numberChek + " на " + value);
+                _numberChek = value;
+            }
         }
-        public TypeChek getTypeChek()
+
+        public int balanc
         {
-            return _typeChek;
+            set
+            {
+                _balanc = value;
+            }
+            get
+            {
+                return _balanc;
+            }
         }
-        public int getBalnceChek()
+
+        public TypeChek typeChek
         {
-            return _balanc;
+            set
+            {
+                _typeChek = value;
+            }
+
+            get
+            {
+                return _typeChek;
+            }
+        }
+
+        public bool WithdrawFromChek(int sum)
+        {
+            bool withdrawSucces = false;
+            if (_balanc - sum >= 0)
+            {
+                _balanc = _balanc - sum;
+                Console.WriteLine("Со счета " + _numberChek + " снята сумма: " + sum);
+                withdrawSucces = true;
+            }
+            else Console.WriteLine("На счете " + _numberChek + " недостаточно средств для снятия: " + sum);
+            return withdrawSucces;
+        }
+
+        public void ToDeposit(int sum)
+        {
+            _balanc += sum;
+            Console.WriteLine("На счет " + _numberChek + " положена сумма: " + sum);
         }
 
         /*
@@ -52,8 +104,7 @@ namespace OOPLesson1
 
         public void ConsoleShowChek()
         {
-            Console.WriteLine("\nДанные счета:");
-            Console.WriteLine("Номер счета: " + _numberChek);
+            Console.WriteLine("\nДанные номера счета:" + _numberChek);
             Console.WriteLine("Тип счета: " + _typeChek);
             Console.WriteLine("Баланс счета: " + _balanc);
         }
