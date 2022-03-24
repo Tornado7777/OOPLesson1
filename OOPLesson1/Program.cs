@@ -8,12 +8,13 @@ namespace OOPLesson1
         static void Main(string[] args)
         {
             ChekInBank chekInBank = new ChekInBank();
-            chekInBank.numberChek = 400009000;
-            chekInBank.typeChek = ChekInBank.TypeChek.type1;
-            chekInBank.balanc = 6012345;
-            Console.WriteLine(chekInBank.numberChek);
-            Console.WriteLine(chekInBank.typeChek);
-            Console.WriteLine(chekInBank.balanc);
+            chekInBank.setNumberChek(400009000);
+            chekInBank.setTypeChek(ChekInBank.TypeChek.type1);
+            chekInBank.setBalnceChek(6012345);
+            Console.WriteLine("Данные счета:");
+            Console.WriteLine("Номер счета: " + chekInBank.getNumberChek());
+            Console.WriteLine("Тип счета: " + chekInBank.getTypeChek());
+            Console.WriteLine("Баланс счета: " + chekInBank.getBalnceChek());
             Console.ReadLine();
         }
     }

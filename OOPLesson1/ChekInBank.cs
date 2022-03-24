@@ -2,48 +2,42 @@
 {
     internal class ChekInBank
     {
+        /* Урок 2, часть 1
+         * Создать класс счет в банке с закрытыми полями: номер счета, баланс, тип
+         * банковского счета (использовать перечислимый тип). Предусмотреть методы для
+         * доступа к данным – заполнения и чтения. Создать объект класса, заполнить его
+         * поля и вывести информацию об объекте класса на печать
+         */
+        
         private int _numberChek;
         private int _balanc;
         private TypeChek _typeChek;
 
-        public int numberChek
+        public void setNumberChek(int numberChek)
         {
-            get
-            {
-                return _numberChek;
-            }
-
-            set
-            {
-                _numberChek = value;
-            }
+            _numberChek = numberChek;
         }
-
-        public int balanc
+        public int getNumberChek()
         {
-            set
-            {
-                _balanc = value;
-            }
-            get
-            {
-                return _balanc;
-            }
+             return _numberChek;
         }
-
-        public TypeChek typeChek
+        public void setTypeChek(TypeChek typeChek)
         {
-            set 
-            { 
-                _typeChek = value; 
-            }
-
-            get 
-            { 
-                return _typeChek; 
-            }
+            _typeChek = typeChek;
         }
-
+        public TypeChek getTypeChek()
+        {
+            return _typeChek;
+        }
+        public void setBalnceChek(int balanc)
+        {
+            _balanc = balanc;
+        }
+        public int getBalnceChek()
+        {
+            return _balanc;
+        }
+        
         public enum TypeChek
         {
             type1,
