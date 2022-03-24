@@ -8,27 +8,18 @@ namespace OOPLesson1
         private TypeChek _typeChek;
         private static int startChekNumber;
 
-        /* Урок1: часть 1
-         * Создать класс счет в банке с закрытыми полями: номер счета, баланс, тип
-         * банковского счета (использовать перечислимый тип). Предусмотреть методы для
-         * доступа к данным – заполнения и чтения. Создать объект класса, заполнить его
-         * поля и вывести информацию об объекте класса на печать
-         */
-        public void setNumberChek(int numberChek)
+
+        public int getNumberChek()
         {
-            _numberChek = numberChek;
+            return _numberChek;
         }
-        public void getNumberChek(int numberChek)
+        public TypeChek getTypeChek()
         {
-            _numberChek = numberChek;
+            return _typeChek;
         }
-        public void getTypeChek(TypeChek typeChek)
+        public int getBalnceChek()
         {
-            _typeChek = typeChek;
-        }
-        public void getBalnceChek(int balanc)
-        {
-            _balanc = balanc;
+            return _balanc;
         }
 
         /*
