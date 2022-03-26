@@ -31,7 +31,18 @@ namespace OOPLesson1
             chekInBank.ConsoleShowChek();
             chekInBank.WithdrawFromChek(1000);
             chekInBank.ConsoleShowChek();
-
+            Console.ReadLine();
+            //проверка перевода средств со счета на счет
+            Console.Clear();
+            Console.WriteLine("\n***Проверка работы снятия сосчета и положить на счет***");
+            chekInBank2.ConsoleShowChek();
+            chekInBank.ConsoleShowChek();
+            chekInBank.Transfer(chekInBank2, 1000);
+            chekInBank2.ConsoleShowChek();
+            chekInBank.ConsoleShowChek();
+            chekInBank2.Transfer(chekInBank, 2000);
+            chekInBank2.ConsoleShowChek();
+            chekInBank.ConsoleShowChek();
             Console.ReadLine();
         }
     }

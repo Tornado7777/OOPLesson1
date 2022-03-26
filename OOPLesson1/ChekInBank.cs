@@ -54,7 +54,11 @@ namespace OOPLesson1
                 return _typeChek;
             }
         }
-
+        /// <summary>
+        /// снятие со счета суммы
+        /// </summary>
+        /// <param name="sum"></param>
+        /// <returns></returns>
         public bool WithdrawFromChek(int sum)
         {
             bool withdrawSucces = false;
@@ -67,13 +71,40 @@ namespace OOPLesson1
             else Console.WriteLine("На счете " + _numberChek + " недостаточно средств для снятия: " + sum);
             return withdrawSucces;
         }
-
-        public void ToDeposit(int sum)
+        /// <summary>
+        /// Положить деньги на счет
+        /// </summary>
+        /// <param name="sum"></param>
+        public bool ToDeposit(int sum)
         {
+            bool result = false;
             _balanc += sum;
             Console.WriteLine("На счет " + _numberChek + " положена сумма: " + sum);
+            result = true;
+            return result;
         }
 
+        /* Урок 3
+         * 1. В класс банковский счет, созданный в упражнениях, добавить метод, который переводит 
+         * деньги с одного счета на другой. У метода два параметра: ссылка на объект класса 
+         * банковский счет откуда снимаются деньги, второй параметр – сумма.
+         */
+
+        /// <summary>
+        /// Перевод на счет
+        /// </summary>
+        public void Transfer(ChekInBank fromTransfer, int sum)
+        {
+            if (fromTransfer != null)
+            {
+                if (fromTransfer.WithdrawFromChek(sum))
+                {
+                    if (this.ToDeposit(sum)) Console.WriteLine("Перевод средств " + sum + " со счета " +
+                        fromTransfer.numberChek + " на счет " + this._numberChek + " успешно завершено!");
+                };
+            }
+            else Console.WriteLine("Счета для перевода средств не существует");
+        }
         /*
          * Часть 3 
          * В классе банковский счет, удалить методы заполнения полей. Вместо этих
